@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.scss";
+import Header from "./components/header/Header";
+import Edit from "./components/edit/Edit";
+import Footer from "./components/footer/Footer";
+import MakePosts from "./components/Posts/MakePosts";
+import Posts from "./components/Posts/Posts";
 
 function App() {
+  const [isEdit, setIsEdit] = useState(false);
+  const [isOpenPosts, setIsOpenPosts] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header setIsEdit={setIsEdit} />
+      {isEdit && <Edit setIsEdit={setIsEdit} />}
+      {!isEdit && (
+        <Footer isOpenPosts={isOpenPosts} setIsOpenPosts={setIsOpenPosts} />
+      )}
+      {isOpenPosts && <MakePosts setIsOpenPosts={setIsOpenPosts} />}
+      {!isOpenPosts && <Posts />}
     </div>
   );
 }
