@@ -458,3 +458,38 @@ footer {
   border: 1px solid #fff;
   border-radius: 16px;
 }
+
+//alert
+.section__alert {
+  position: fixed;
+  right: 20px;
+  top: 105px;
+  padding: 20px 30px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 10px;
+  // background-color: #fff;
+  background-color: #2c2c2cd1;
+  -webkit-box-shadow: 0px 0px 9px 0px #ccc;
+  box-shadow: 0px 0px 9px 0px #ccc;
+  animation: tranX 1s ease-in-out;
+  .notification {
+    margin-left: 5px;
+  }
+  .icon {
+    > img {
+      width: 30px;
+    }
+  }
+}
+
+@keyframes tranX {
+  from {
+    right: -50px;
+    opacity: 0;
+  }
+  to {
+    right: 20px;
+    opacity: 1;
+  }
+}
