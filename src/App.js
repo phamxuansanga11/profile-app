@@ -25,37 +25,54 @@ function App() {
 
   const [isShowAlert, setIsShowAlert] = useState(true);
   const [isEdit, setIsEdit] = useState(false);
-  const [isOpenPosts, setIsOpenPosts] = useState(false);
+  const [isOpenPosts, setIsOpenPosts] = useState(true);
   const [isEditPost, setIsEditPost] = useState(false);
 
   return (
     <div className="App">
-      <Header setIsEdit={setIsEdit} />
+      {}
+
       {isEdit && <Edit setIsEdit={setIsEdit} />}
-      {!isEdit && (
-        <Footer
-          isOpenPosts={isOpenPosts}
-          setIsOpenPosts={setIsOpenPosts}
-          setIsEditPost={setIsEditPost}
-        />
-      )}
-      {isOpenPosts && (
-        <MakePosts setIsOpenPosts={setIsOpenPosts} isEditPost={isEditPost} />
-      )}
-      {!isOpenPosts && !isEditPost ? (
-        <Posts
-          setIsOpenPosts={setIsOpenPosts}
-          isEditPost={isEditPost}
-          setIsEditPost={setIsEditPost}
-        />
-      ) : (
-        !isOpenPosts && (
+      {!isEdit && !isEditPost && isOpenPosts ? (
+        <>
+          <Header setIsEdit={setIsEdit} />
           <Posts
             setIsOpenPosts={setIsOpenPosts}
             isEditPost={isEditPost}
             setIsEditPost={setIsEditPost}
           />
-        )
+          <Footer
+            isOpenPosts={isOpenPosts}
+            setIsOpenPosts={setIsOpenPosts}
+            setIsEditPost={setIsEditPost}
+          />
+        </>
+      ) : !isEdit && !isOpenPosts ? (
+        <>
+          <Header setIsEdit={setIsEdit} />
+          <MakePosts setIsOpenPosts={setIsOpenPosts} isEditPost={isEditPost} />
+          <Footer
+            isOpenPosts={isOpenPosts}
+            setIsOpenPosts={setIsOpenPosts}
+            setIsEditPost={setIsEditPost}
+          />
+        </>
+      ) : isOpenPosts && !isEdit ? (
+        <>
+          <Header setIsEdit={setIsEdit} />
+          <Posts
+            setIsOpenPosts={setIsOpenPosts}
+            isEditPost={isEditPost}
+            setIsEditPost={setIsEditPost}
+          />
+          <Footer
+            isOpenPosts={isOpenPosts}
+            setIsOpenPosts={setIsOpenPosts}
+            setIsEditPost={setIsEditPost}
+          />
+        </>
+      ) : (
+        ""
       )}
       {isShowAlert && <Alert />}
     </div>

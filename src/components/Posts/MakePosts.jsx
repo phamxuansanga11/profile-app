@@ -13,14 +13,14 @@ const MakePosts = ({ setIsOpenPosts, isEditPost }) => {
   // console.log("post Edit...", postUpdate);
 
   const tagsArr = ["None", "NSFW", "Mood", "Quotes", "Shitpost"];
-  const [active, setActive] = useState();
+  const [active, setActive] = useState(0);
 
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [idPostSave, setIdPostSave] = useState();
 
   const handlePost = () => {
-    setIsOpenPosts(false);
+    setIsOpenPosts(true);
     const newPost = {
       id: uuidv4(),
       title: title,
@@ -31,7 +31,7 @@ const MakePosts = ({ setIsOpenPosts, isEditPost }) => {
   };
 
   const handleSave = () => {
-    setIsOpenPosts(false);
+    setIsOpenPosts(true);
     const newPostEdit = {
       id: idPostSave,
       title: title,

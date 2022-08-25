@@ -1,6 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deletePost, updatePost } from "../../redux/postSlice";
 
 const Posts = ({ setIsOpenPosts, setIsEditPost }) => {
@@ -16,7 +15,7 @@ const Posts = ({ setIsOpenPosts, setIsEditPost }) => {
 
   const handleEdit = (id) => {
     setIsEditPost(true);
-    setIsOpenPosts(true);
+    setIsOpenPosts(false);
     dispath(updatePost(id));
   };
 

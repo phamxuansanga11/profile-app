@@ -9,7 +9,7 @@ const Footer = ({ isOpenPosts, setIsOpenPosts, setIsEditPost }) => {
   return (
     <footer>
       <div className="footer-title" onClick={handleClickFooter}>
-        {isOpenPosts ? (
+        {!isOpenPosts ? (
           <span className="btn__close">close</span>
         ) : (
           <span className="btn__add">+ add new post</span>
